@@ -1,0 +1,80 @@
+.volumes-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping to the next line if boxes exceed width */
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.volume-box {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    /* transition: transform 0.2s, box-shadow 0.2s; */
+}
+
+.volume-box:hover {
+    /* transform: translateY(-5px); */
+    /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Deeper shadow on hover */
+}
+
+.volume-box h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.volume-box p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .volume-box {
+        width: 200px;
+        /* Reduce size for tablets */
+        height: 120px;
+    }
+
+    .volume-box h3 {
+        font-size: 1.2rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .volume-box p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .volume-box {
+        width: 100%;
+       
+        max-width: auto;
+  
+        height: auto;
+        padding: 40px;
+       
+    }
+
+    .volume-box h3 {
+        font-size: 1rem;
+        /* Smaller font size for compact screens */
+    }
+
+    .volume-box p {
+        font-size: 0.8rem;
+    }
+}

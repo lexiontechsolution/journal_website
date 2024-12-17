@@ -1,0 +1,6 @@
+1. years - https://publication-backend-klr9.onrender.com/years
+2. volume - https://publication-backend-klr9.onrender.com/publications?year=${year}&volume=${volume}
+3. special publication - https://publication-backend-klr9.onrender.com/special-issues?year=${year}&volume=${volume}&issue=${issue}
+4. regular - https://publication-backend-klr9.onrender.com/publications?year=${year}&volume=${volume}&issue=${issue}
+
+api for all the data to be fetched 
