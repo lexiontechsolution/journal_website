@@ -1,22 +1,34 @@
-const { SitemapStream, streamToPromise } = require('sitemap');
-const { createWriteStream } = require('fs');
+const { SitemapStream, streamToPromise } = require("sitemap");
+const fs = require("fs");
 
-(async () => {
-    const links = [
-        { url: '/', changefreq: 'daily', priority: 1.0 },
-        { url: '/about', changefreq: 'weekly', priority: 0.8 },
-        { url: '/contact', changefreq: 'monthly', priority: 0.7 },
-        { url: '/research', changefreq: 'weekly', priority: 0.9 },
-        // Add more URLs as per your site structure
-    ];
+// List of URLs to be included in the sitemap
+const sitemapUrls = [
+  { url: "/", changefreq: "daily", priority: 1.0 },
+  { url: "/editorial", changefreq: "monthly", priority: 0.8 },
+  { url: "/contactus", changefreq: "monthly", priority: 0.8 },
+  // Add more routes here
+];
 
-    const sitemap = new SitemapStream({ hostname: 'https://www.ijeae.com' });
-    const writeStream = createWriteStream('./public/sitemap.xml');
+// Create a new SitemapStream instance
+const sitemapStream = new SitemapStream({
+  hostname: "https://www.ijeae.com",
+});
 
-    streamToPromise(sitemap.pipe(writeStream)).catch(console.error);
+// Create a writable stream to save the sitemap to a file
+const writeStream = fs.createWriteStream("./public/sitemap.xml");
 
-    links.forEach(link => sitemap.write(link));
-    sitemap.end();
+// Pipe the data to the file
+sitemapStream.pipe(writeStream);
 
-    console.log('Sitemap successfully generated at ./public/sitemap.xml');
-})();
+// Add URLs to the sitemap
+sitemapUrls.forEach((url) => {
+  sitemapStream.write(url);
+});
+
+// End the stream and generate the sitemap.xml
+sitemapStream.end();
+
+// Optionally, output the sitemap XML to the console
+streamToPromise(sitemapStream).then((sm) => {
+  console.log(sm.toString());
+});
