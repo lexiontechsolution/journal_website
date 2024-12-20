@@ -2,10 +2,22 @@ import React from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import "./Journalmetrics.css";
+import { Helmet } from "react-helmet";
 
 const Journalmetrics = () => {
   return (
     <>
+      <Helmet>
+        <title>IJEAE</title>
+        <meta
+          name="description"
+          content="IJEAE is the International Journal of English for Academic Research, offering a platform for high-quality research in English studies."
+        />
+        <meta
+          name="keywords"
+          content="International Journal, English for Academic Research, IJEAE"
+        />
+      </Helmet>
       <Header />
 
       <div className="heading-class">
