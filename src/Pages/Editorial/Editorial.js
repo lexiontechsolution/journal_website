@@ -42,11 +42,25 @@ const Editorial = () => {
           <div class="row-editorial">
             <div class="box-editorial">
               <h3>Editor-in-Chief</h3>
-              <p style={{ textAlign: "center" }}>Mr. Attrait Dovin Fedrick</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Mr. Attrait Dovin Fedrick
+                </span>
+                <br></br>
+                Chairman<br></br>Academic Development Forum<br></br>2/2 A West
+                Street, South Amuthunnakudi, Sathankulam (post),Thoothukudi,
+                Tamil Nadu – 628 704, India.
+              </p>
             </div>
             <div class="box-editorial">
               <h3>Associate Editor</h3>
-              <p>Dr. M. Richard Robert Raa</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Dr. M. Richard Robert Raa
+                </span>
+                <br></br>Associate Professor of English,<br></br>Nehru Arts and
+                Science College, Coimbatore, Tamil Nadu - 641 105, India.
+              </p>
             </div>
           </div>
         </div>
@@ -66,23 +80,54 @@ const Editorial = () => {
         <div class="container-editorial">
           <div class="row-editorial">
             <div class="box-editorial">
-              <p>Dr. Joseph Mathew</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Dr. Joseph Mathew
+                </span>
+                <br></br>Assistant Professor of English, <br></br>Nehru Arts and
+                Science College, Coimbatore, Tamil Nadu – 641 105, India.
+              </p>
             </div>
             <div class="box-editorial">
-              <p>Prof. Prasanth Arokia Samy D</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Prof. Prasanth Arokia Samy D
+                </span>
+                <br></br>Assistant Professor of English, <br></br>St. Joseph's
+                College, Tiruchirappalli, Tamil Nadu - 620002, India.
+              </p>
             </div>
           </div>
           <div class="row-editorial">
             <div class="box-editorial">
-              <p>Prof. Caro Velma J</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Prof. Caro Velma J
+                </span>
+                <br></br>Assistant Professor of English, <br></br>Holy Cross
+                College, Tiruchirappalli, Tamil Nadu – 620 002, India.
+              </p>
             </div>
             <div class="box-editorial">
-              <p>Dr. B. S. Gomathi</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Dr. B. S. Gomathi
+                </span>
+                <br></br>Associate Professor of English, <br></br>Velalar
+                College of Engineering and Technology, Thindal, Erode, Tamil
+                Nadu -638 012, India
+              </p>
             </div>
           </div>
           <div class="row-editorial">
             <div class="box fifth-box-edit">
-              <p>Dr. Cynthiya Rose J S</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Dr. Cynthiya Rose J S
+                </span>
+                <br></br>Freelance and Language trainer, Chennai, Tamil Nadu,
+                India.
+              </p>
             </div>
           </div>
         </div>
@@ -103,10 +148,22 @@ const Editorial = () => {
         <div class="container-editorial">
           <div class="row-editorial">
             <div class="box-editorial">
-              <p style={{ textAlign: "left" }}>Dr. Sreejith Ramachandran</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Dr. Sreejith Ramachandran
+                </span>
+                <br></br>Associate Professor and Head,<br></br> Department of
+                English at Acharya University, Karakul, Uzbekistan
+              </p>
             </div>
             <div class="box-editorial">
-              <p>Dr. Gamaya K P</p>
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Dr. Gamaya K P
+                </span>
+                <br></br>Senior Assistant Professor, <br></br>Department of
+                English at Acharya University, Karakul, Uzbekistan.
+              </p>
             </div>
           </div>
         </div>
