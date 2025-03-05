@@ -95,18 +95,7 @@ const Home = () => {
         communities within the field of English studies.  
       </div>
 
-      <div className="about-journal">
-        <h3>About the Journal</h3>
-        <div className="journal-info">
-          The International Journal of English for Academic Excellence (IJEAE)
-          is a bi-monthly peer-reviewed, open-access journal published by the
-          Academic Development Forum (ADF), India. Launched in 2024, the IJEAE
-          serves as a premier platform for interdisciplinary scholarship,
-          focusing exclusively on English literature and language. The journal
-          invites contributions from researchers and practitioners exploring
-          diverse facets of these fields, fostering academic discourse and
-          promoting innovation.
-        </div>
+
       </div>
       <Footer />
     </>
