@@ -86,6 +86,7 @@ const Editorial = () => {
                 </span>
                 <br></br>Assistant Professor of English, <br></br>Nehru Arts and
                 Science College, Coimbatore, Tamil Nadu – 641 105, India.
+                <br></br>nascjospehmathew@nehrucolleges.com
               </p>
             </div>
             <div class="box-editorial">
