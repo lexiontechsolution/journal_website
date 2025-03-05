@@ -94,9 +94,6 @@ const Home = () => {
         space for knowledge sharing that enriches both academic and professional
         communities within the field of English studies.  
       </div>
-
-
-      </div>
       <Footer />
     </>
   );
