@@ -1,0 +1,129 @@
+/* General Container Styling */
+.about-container {
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 50px;
+    color: black;
+    background-color: #ffffff;
+}
+
+/* Centered Title */
+.about-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+/* Subtitle Styling */
+.about-subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: blue;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Text Styling */
+.about-text {
+    font-size: 1.3rem;
+    /* line-height: 1.6; */
+    
+    text-align: justify;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+/* List Styling */
+.about-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 1.3rem;
+    /* line-height: 1.6; */
+    
+    margin-bottom: 20px;
+}
+
+.about-list li {
+    margin-bottom: 10px;
+}
+
+/* Image Section */
+.about-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .about-container {
+        max-width: 90%;
+        padding: 30px;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.6rem;
+    }
+
+    .about-text,
+    .about-list {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-container {
+        padding: 20px;
+    }
+
+    .about-title {
+        font-size: 1.8rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .about-text,
+    .about-list {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .about-title {
+        font-size: 1.6rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .about-text,
+    .about-list {
+        font-size: 0.95rem;
+    }
+
+    .about-image img {
+        max-width: 100%;
+    }
+}
