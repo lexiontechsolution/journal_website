@@ -1,0 +1,150 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    height: 80px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.nav-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    display: flex;
+    gap: 100px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #aba6a6;
+    font-size: large;
+    font-weight: bold;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav a.active-link {
+    color: #000000;
+}
+
+.nav a.active-link::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #007bff;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+
+
+.dropdown {
+    position: absolute;
+    display: flex;
+    z-index: 15;
+    top: 100%;
+    left: 0;
+    /* I have put this because the dropdown goes inside the background image. By increasing z index , the dropdown is focussed*/
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown a {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #898585;
+    display: block;
+    white-space: nowrap;
+}
+
+.nav a.dropdown-wrapper {
+    display: inline-flex;
+    align-items: center;
+    /* Vertically center the text and icon */
+    gap: 8px;
+position: relative;
+}
+
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 768px) {
+    .nav-container {
+        display: none;
+        /* Hide nav by default */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container.active {
+        display: flex;
+        /* Show nav when active */
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nav a {
+        font-size: medium;
+        color: #333;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav a {
+        font-size: small;
+    }
+}

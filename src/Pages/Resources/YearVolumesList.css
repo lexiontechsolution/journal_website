@@ -1,0 +1,70 @@
+/* Ensure the page wrapper uses flexbox layout */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensures the page takes the full viewport height */
+}
+
+/* Main content grows to push the footer to the bottom */
+.content-wrapper {
+    flex: 1;
+    /* Allows this section to grow and fill space */
+    padding: 20px;
+}
+
+/* Center years container */
+.years-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+/* Style for each volume box */
+.year-box {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.year-box:hover {
+    background-color: #f0f0f0;
+}
+
+/* Heading styling */
+.heading-class {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Styling for publication count text */
+.publication-count {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Styling for the loading text when data is being fetched */
+.loading-text {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Ensure the footer sticks to the bottom of the page */
+footer {
+    margin-top: auto;
+    /* Pushes footer to the bottom */
+    padding: 10px 0;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+/* Optional: You can add your footer styling here for custom appearance */
