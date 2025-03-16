@@ -55,10 +55,76 @@ const About = () => {
         </ul>
 
         <h2 className="about-subtitle">Journal Particulars</h2>
-        <div className="about-image">
-          <img src={journalimage} alt="Journal Details" />
+
+        <div className="container-journal-pariculars">
+          <table className="journal-table">
+            <tbody>
+              <tr>
+                <td>Journal Title</td>
+                <td>
+                  International Journal of English for Academic Excellence
+                </td>
+              </tr>
+              <tr>
+                <td>Publisher</td>
+                <td>Academic Development Forum (ADF)</td>
+              </tr>
+              <tr>
+                <td>Publishing Format</td>
+                <td>Online</td>
+              </tr>
+              <tr>
+                <td>Editor-in-Chief</td>
+                <td>Mr. Attrait Dovin Fedrick</td>
+              </tr>
+              <tr>
+                <td>Starting Year</td>
+                <td>2025</td>
+              </tr>
+              <tr>
+                <td>Publishing Language</td>
+                <td>English</td>
+              </tr>
+              <tr>
+                <td>Subject</td>
+                <td>English Literature and Language</td>
+              </tr>
+              <tr>
+                <td>Frequency</td>
+                <td>Bi-monthly</td>
+              </tr>
+              <tr>
+                <td>E – ISSN (Online)</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Email ID</td>
+                <td>editor.ijeae@gmail.com</td>
+              </tr>
+              <tr>
+                <td>Website</td>
+                <td>
+                  <a
+                    href="https://www.ijeae.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    www.ijeae.com
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>
+                  2/2 A, West Street, South Amuthunnakkudi, Sathankulam (post),
+                  Thoothukudi (District), Tamil Nadu - 628704
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+
       <Footer />
     </>
   );

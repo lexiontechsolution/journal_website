@@ -4,6 +4,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import "./PublicationsPage.css";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 const PublicationsPage = () => {
   const { year, volume, issue } = useParams();
@@ -31,6 +32,22 @@ const PublicationsPage = () => {
     fetchData();
   }, [year, volume, issue]);
 
+  const fetchPdf = async (pdfId) => {
+    try {
+      const response = await axios.get(
+        `https://publicationbackend-1.onrender.com/view-pdf/${pdfId}`,
+        { responseType: "blob" }
+      );
+
+      const blob = new Blob([response.data], { type: "application/pdf" });
+      const blobUrl = URL.createObjectURL(blob);
+      window.open(blobUrl, "_blank");
+    } catch (error) {
+      console.error("Error fetching PDF:", error);
+      alert("Failed to load PDF.");
+    }
+  };
+
   return (
     <div className="publications-page">
       <Helmet>
@@ -48,7 +65,7 @@ const PublicationsPage = () => {
       <div className="content">
         <div className="heading-class">
           <span style={{ color: "blue" }}>Regular Issue Publications</span>
-          <br></br> {year}/ Volume {volume}
+          <br /> {year}/ Volume {volume}
         </div>
 
         <div className="publications-container">
@@ -56,15 +73,16 @@ const PublicationsPage = () => {
             publications.map((publication, index) => (
               <div key={publication._id || index} className="publication-box">
                 <p>
-                  {index + 1}. {publication.title}
-                  <a
-                    href={publication.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ marginLeft: "10px" }}
+                  <em>By: {publication.author}</em>
+                  <br />
+                  {publication.title}
+                  <br></br>
+                  <button
+                    className="pdf-button"
+                    onClick={() => fetchPdf(publication._id)}
                   >
-                    Get PDF
-                  </a>
+                    Article PDF
+                  </button>
                 </p>
               </div>
             ))
