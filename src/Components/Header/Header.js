@@ -77,7 +77,7 @@ const Header = () => {
             </Link>
             <Link
               className={`dropdown-wrapper ${
-                location.pathname === "/aboutus" ||
+                location.pathname === "/about the journal" ||
                 location.pathname === "/contactus" ||
                 location.pathname === "/editorial" ||
                 location.pathname === "/announcement"
