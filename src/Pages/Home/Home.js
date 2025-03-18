@@ -95,7 +95,7 @@ const Home = () => {
         communities within the field of English studies.  
       </div>
 
-      <div className="about-journal">
+     /* <div className="about-journal">
         <h3>About the Journal</h3>
         <div className="journal-info">
           The International Journal of English for Academic Excellence (IJEAE)
@@ -107,7 +107,7 @@ const Home = () => {
           diverse facets of these fields, fostering academic discourse and
           promoting innovation.
         </div>
-      </div>
+      </div>*/
       <Footer />
     </>
   );
