@@ -42,7 +42,8 @@ const About = () => {
 
         <h2 className="about-subtitle">Objectives</h2>
         <ul className="about-list">
-          <li>Publish high-quality research in ELT and literature.</li>
+          <li>Publish high-quality research in English Language Teaching (ELT) and English Literature 
+.</li>
           <li>Encourage discussions on trends, challenges, and innovations.</li>
           <li>Provide a platform for early-career researchers.</li>
           <li>
