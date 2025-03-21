@@ -51,7 +51,6 @@ const About = () => {
           </li>
           <li>Ensure a rigorous peer-review process.</li>
           <li>Foster collaborations among scholars.</li>
-          <li>Maintain a transparent, no-APC publishing model.</li>
           <li>Work towards indexing in reputed databases.</li>
         </ul>
 
