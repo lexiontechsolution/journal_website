@@ -115,33 +115,7 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
               </p>
             </div>
                   </div>
- <div className="row-editorial">
-  <div className="box-editorial">
-    <p>
-      <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
-        Dr. P. Sasikumar
-      </span>
-      <br></br>Assistant Professor of English, <br></br>
-      Department of Social Sciences<br></br>
-      SRM College of Agricultural Sciences<br></br>
-      SRM Institute of Science and Technology<br></br>
-      Baburayanpettai, Chengalpattu, Tamil Nadu - 603 201, India<br></br>
-      <a href="mailto:sasikump@srmist.edu.in ">sasikump@srmist.edu.in</a>
-    </p>
-  </div>
-</div>
- <div className="row-editorial">
-            <div class="box-editorial">
-              <p>
-                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
-                 Lt. Dr. K. Vishnu Gobal
 
-                </span>
-                <br></br>Associate Professor of English, <br></br>Dr. N. G. P Arts and Science College, Coimbatore, Tamil Nadu - 641035, India<br></br>
-                <a href="mailto:vishnugobal@drngpasc.ac.in"> vishnugobal@drngpasc.ac.in </a>
-              </p>
-            </div>
-          </div>
                     <div className="row-editorial">
  <div class="box-editorial">
               <p>
