@@ -50,6 +50,8 @@ const Editorial = () => {
                 Chairman<br></br>Academic Development Forum<br></br>2/2 A West
                 Street, South Amuthunnakudi, Sathankulam (post),Thoothukudi,
                 Tamil Nadu – 628 704, India.
+                  <br></br>
+                <a href="mailto:academicdevelopmentforum24@gmail.com"> Email</a>
               </p>
             </div>
             <div class="box-editorial">
@@ -88,7 +90,8 @@ const Editorial = () => {
                   Dr. Joseph Mathew
                 </span>
                 <br></br>Assistant Professor of English, <br></br>Nehru Arts and
-                Science College, Coimbatore, Tamil Nadu – 641 105, India.
+                Science College, Coimbatore, Tamil Nadu – 641 105, India.<br></br>
+                <a href="mailto:nascjospehmathew@nehrucolleges.com"> Email</a>
               </p>
             </div>
             <div class="box-editorial">
@@ -97,7 +100,8 @@ const Editorial = () => {
                   Prof. Prasanth Arokia Samy D
                 </span>
                 <br></br>Assistant Professor of English, <br></br>St. Joseph's
-                College, Tiruchirappalli, Tamil Nadu - 620002, India.
+                College, Tiruchirappalli, Tamil Nadu - 620002, India.<br></br>
+                <a href="mailto:prasantharokiasamy_en2@mail.sjctni.edu"> Email</a>
               </p>
             </div>
           </div>
@@ -108,7 +112,8 @@ const Editorial = () => {
                   Prof. Caro Velma J
                 </span>
                 <br></br>Assistant Professor of English, <br></br>Holy Cross
-                College, Tiruchirappalli, Tamil Nadu – 620 002, India.
+                College, Tiruchirappalli, Tamil Nadu – 620 002, India.<br></br>
+                <a href="mailto:nascdrrichard@nehrucolleges.com"> Email</a>
               </p>
             </div>
             <div class="box-editorial">
@@ -118,7 +123,8 @@ const Editorial = () => {
                 </span>
                 <br></br>Associate Professor of English, <br></br>Velalar
                 College of Engineering and Technology, Thindal, Erode, Tamil
-                Nadu -638 012, India
+                Nadu -638 012, India<br></br>
+                <a href="mailto:gomathibs@velalar.engg.ac.in"> Email</a>
               </p>
             </div>
           </div>
@@ -129,7 +135,8 @@ const Editorial = () => {
                   Dr. Cynthiya Rose J S
                 </span>
                 <br></br>Freelance and Language trainer, Chennai, Tamil Nadu,
-                India.
+                India.<br></br>
+                <a href="mailto:"> Email</a>
               </p>
             </div>
           </div>
@@ -156,7 +163,8 @@ const Editorial = () => {
                   Dr. Sreejith Ramachandran
                 </span>
                 <br></br>Associate Professor and Head,<br></br> Department of
-                English at Acharya University, Karakul, Uzbekistan
+                English at Acharya University, Karakul, Uzbekistan<br></br>
+                <a href="mailto:sreejith11@acharya.ac.uz"> Email</a>
               </p>
             </div>
             <div class="box-editorial">
@@ -165,7 +173,8 @@ const Editorial = () => {
                   Dr. Gamaya K P
                 </span>
                 <br></br>Senior Assistant Professor, <br></br>Department of
-                English at Acharya University, Karakul, Uzbekistan.
+                English at Acharya University, Karakul, Uzbekistan.<br></br>
+                <a href="mailto:gamaya10@acharya.ac.uz"> Email</a>
               </p>
             </div>
           </div>
