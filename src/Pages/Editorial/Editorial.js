@@ -114,6 +114,7 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
                 College, Tiruchirappalli, Tamil Nadu – 620 002, India.
               </p>
             </div>
+                  </div>
  <div class="row-editorial">
             <div class="box-editorial">
               <p>
@@ -125,9 +126,9 @@ SRM College of Agricultural Sciences
 SRM Institute of Science and Technology
 Baburayanpettai, Chengalpattu, Tamil Nadu - 603 201, India<br></br>
                 <a href="mailto:sasikump@srmist.edu.in "> sasikump@srmist.edu.in  </a>
-
               </p>
             </div>
+  </div>
             <div class="box-editorial">
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
