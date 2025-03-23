@@ -105,8 +105,7 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
             </div>
           </div>
 
-        <div class="container-editorial">
-                    
+    
           <div class="row-editorial">
             <div class="box-editorial">
               <p>
