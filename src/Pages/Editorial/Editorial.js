@@ -129,6 +129,31 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
               </p>
             </div>
                   </div>
+
+
+ <div class="row-editorial">
+            <div class="box-editorial">
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Prof. Caro Velma J
+                </span>
+                <br></br>Assistant Professor of English, <br></br>Holy Cross
+                College, Tiruchirappalli, Tamil Nadu – 620 002, India.
+              </p>
+            </div>
+                 
+ <div class="box-editorial">
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                  Dr. B. S. Gomathi
+                </span>
+                <br></br>Associate Professor of English, <br></br>Velalar
+                College of Engineering and Technology, Thindal, Erode, Tamil
+                Nadu -638 012, India<br></br>
+                <a href="mailto:gomathibs@velalar.engg.ac.in"> gomathibs@velalar.engg.ac.in</a>
+              </p>
+            </div>
+                  </div>
           
 
           <div class="row-editorial">
