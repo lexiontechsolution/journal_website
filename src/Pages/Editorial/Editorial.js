@@ -55,15 +55,14 @@ const Editorial = () => {
               </p>
             </div>
             <div class="box-editorial">
-              <h3>Associate Editor</h3>
+        
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
                   Dr. M Richard Robert Raa
                 </span>
-                <br></br>
-                Chairman<br></br>Academic Development Forum<br></br>2/2 A West
-                Street, South Amuthunnakudi, Sathankulam (post),Thoothukudi,
-                Tamil Nadu – 628 704, India.<br></br>
+               
+             <br></br>2/2Associate Professor of English,
+Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br>
                 <a href="mailto:nascdrrichard@nehrucolleges.com">nascdrrichard@nehrucolleges.com</a>
               </p>
             </div>
@@ -115,7 +114,32 @@ const Editorial = () => {
                 College, Tiruchirappalli, Tamil Nadu – 620 002, India.
               </p>
             </div>
+ <div class="row-editorial">
             <div class="box-editorial">
+              <p>
+                <span style={{ fontWeigDr. P. Sasikumarht: "bold", fontStyle: "normal" }}>
+                  
+                </span>
+                <br></br>Assistant Professor of English, <br></br>Department of Social Sciences
+SRM College of Agricultural Sciences
+SRM Institute of Science and Technology
+Baburayanpettai, Chengalpattu, Tamil Nadu - 603 201, India<br></br>
+                <a href="mailto:sasikump@srmist.edu.in "> sasikump@srmist.edu.in  </a>
+
+              </p>
+            </div>
+            <div class="box-editorial">
+              <p>
+                <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
+                 Lt. Dr. K. Vishnu Gobal
+
+                </span>
+                <br></br>Associate Professor of English, <br></br>Dr. N. G. P Arts and Science College, Coimbatore, Tamil Nadu - 641035, India<br></br>
+                <a href="mailto:vishnugobal@drngpasc.ac.in"> vishnugobal@drngpasc.ac.in </a>
+              </p>
+            </div>
+          </div>
+ <div class="box-editorial">
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
                   Dr. B. S. Gomathi
@@ -127,6 +151,7 @@ const Editorial = () => {
               </p>
             </div>
           </div>
+
           <div class="row-editorial">
             <div class="box fifth-box-edit">
               <p>
