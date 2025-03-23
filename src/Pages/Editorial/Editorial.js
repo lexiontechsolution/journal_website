@@ -112,8 +112,7 @@ const Editorial = () => {
                   Prof. Caro Velma J
                 </span>
                 <br></br>Assistant Professor of English, <br></br>Holy Cross
-                College, Tiruchirappalli, Tamil Nadu – 620 002, India.<br></br>
-                <a href="mailto:nascdrrichard@nehrucolleges.com"> Email</a>
+                College, Tiruchirappalli, Tamil Nadu – 620 002, India.
               </p>
             </div>
             <div class="box-editorial">
@@ -135,8 +134,7 @@ const Editorial = () => {
                   Dr. Cynthiya Rose J S
                 </span>
                 <br></br>Freelance and Language trainer, Chennai, Tamil Nadu,
-                India.<br></br>
-                <a href="mailto:"> Email</a>
+                India.
               </p>
             </div>
           </div>
