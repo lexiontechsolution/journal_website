@@ -225,15 +225,9 @@ const Authorguide = () => {
           <p>
             <strong>Paper Link:</strong>{" "}
             <a
-             const App = () => {
-    const onButtonClick = () => {
-        const pdfUrl = "_IJEAE_ Journal Template.docx";
-        const link = document.createElement("a");
-        link.href = pdfUrl;
-        link.download = "_IJEAE_ Journal Template.docx"; // specify the filename
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+          href="https://drive.google.com/drive/folders/1YFJR05SL9MESboqpZcm-jNmFXubpcIPv?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Journal Template
             </a>
