@@ -130,7 +130,7 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
     </p>
   </div>
 </div>
-
+ <div className="row-editorial">
             <div class="box-editorial">
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
@@ -142,6 +142,7 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
               </p>
             </div>
           </div>
+                    <div className="row-editorial">
  <div class="box-editorial">
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
