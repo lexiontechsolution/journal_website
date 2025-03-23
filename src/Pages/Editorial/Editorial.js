@@ -61,7 +61,7 @@ const Editorial = () => {
                   Dr. M Richard Robert Raa
                 </span>
                
-             <br></br>2/2Associate Professor of English,
+             <br></br>Associate Professor of English,</br>
 Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br>
                 <a href="mailto:nascdrrichard@nehrucolleges.com">nascdrrichard@nehrucolleges.com</a>
               </p>
