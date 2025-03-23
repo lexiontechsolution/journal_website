@@ -110,22 +110,25 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
             <div class="box-editorial">
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
-                  Prof. Caro Velma J
+                Lt. Dr. K. Vishnu Gobal
                 </span>
-                <br></br>Assistant Professor of English, <br></br>Holy Cross
-                College, Tiruchirappalli, Tamil Nadu – 620 002, India.
+                <br></br>Assistant Professor of English, <br></br>Dr. N. G. P Arts and Science College, Coimbatore, Tamil Nadu - 641035, India<br></br>
+                <a href="mailto:vishnugobal@drngpasc.ac.in"> vishnugobal@drngpasc.ac.in</a>
               </p>
             </div>
                  
  <div class="box-editorial">
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
-                  Dr. B. S. Gomathi
+                  Dr. P. Sasikumar  
                 </span>
-                <br></br>Associate Professor of English, <br></br>Velalar
-                College of Engineering and Technology, Thindal, Erode, Tamil
-                Nadu -638 012, India<br></br>
-                <a href="mailto:gomathibs@velalar.engg.ac.in"> gomathibs@velalar.engg.ac.in</a>
+                <br></br>Associate Professor of English, <br></br>Assistant Professor of English
+Department of Social Sciences
+SRM College of Agricultural Sciences
+SRM Institute of Science and Technology
+Baburayanpettai, Chengalpattu, Tamil Nadu - 603 201, India
+<br></br>
+                <a href="mailto:sasikump@srmist.edu.in "> sasikump@srmist.edu.in </a>
               </p>
             </div>
                   </div>
