@@ -73,7 +73,7 @@ const Header = () => {
               to="/years"
               className={location.pathname === "/years" ? "active-link" : ""}
             >
-              Resources
+               Archives
             </Link>
             <Link
               className={`dropdown-wrapper ${
