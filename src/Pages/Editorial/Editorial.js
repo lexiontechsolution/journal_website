@@ -118,7 +118,7 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
             </div>
                   </div>
                   </div>
-                    <div className="row-editorial">
+                    
  <div class="box-editorial">
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
@@ -130,7 +130,7 @@ Nehru Arts and Science College, Coimbatore, Tamil Nadu- 641105, India.<br></br
                 <a href="mailto:gomathibs@velalar.engg.ac.in"> gomathibs@velalar.engg.ac.in</a>
               </p>
             </div>
-          </div>
+          
 
           <div class="row-editorial">
             <div class="box fifth-box-edit">
