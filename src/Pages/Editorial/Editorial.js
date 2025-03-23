@@ -36,7 +36,7 @@ const Editorial = () => {
           process.
         </p>
         <h2>
-          <span style={{ color: "blue" }}>Editorial </span>Members
+          <span style={{ color: "blue" }}>Editorial  Board  </span>Members
         </h2>
         <div class="container-editorial">
           <div class="row-editorial">
