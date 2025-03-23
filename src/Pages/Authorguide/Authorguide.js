@@ -225,7 +225,8 @@ const Authorguide = () => {
           <p>
             <strong>Paper Link:</strong>{" "}
             <a
-          href="https://drive.google.com/drive/folders/1YFJR05SL9MESboqpZcm-jNmFXubpcIPv?usp=drive_link"
+          href="https://docs.google.com/document/d/1e9QmfTpxwnVrRYbKoiyPxofgWuyRgkXMDqw4Ss53tYc/export?format=pdf
+"
               target="_blank"
               rel="noopener noreferrer"
             >
