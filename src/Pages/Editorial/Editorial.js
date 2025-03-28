@@ -153,7 +153,7 @@ Baburayanpettai, Chengalpattu, Tamil Nadu - 603 201, India
                 <br></br>Associate Professor of English, <br></br>Velalar
                 College of Engineering and Technology, Thindal, Erode, Tamil
                 Nadu -638 012, India<br></br>
-                <a href="mailto:gomathibs@velalar.engg.ac.in"> gomathibs@velalar.engg.ac.in</a>
+                <a href="mailto:gomathibs@velalarengg.ac.in"> gomathibs@velalarengg.ac.in</a>
               </p>
             </div>
                   </div>
