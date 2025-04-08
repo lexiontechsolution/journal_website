@@ -95,7 +95,7 @@ const About = () => {
               </tr>
               <tr>
                 <td>E – ISSN (Online)</td>
-                <td>-</td>
+                <td>3049-2912</td>
               </tr>
               <tr>
                 <td>Email ID</td>
