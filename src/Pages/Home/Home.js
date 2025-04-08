@@ -32,6 +32,8 @@ const Home = () => {
         Journal of English for
         <br></br>
         Academic <span style={{ color: "blue" }}>Excellence</span>
+          <br></br>
+          online ISSN 3049-2912
       </div>
 
       <div className="heading-class-1">
