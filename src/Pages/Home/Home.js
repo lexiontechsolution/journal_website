@@ -33,7 +33,7 @@ const Home = () => {
         <br></br>
         Academic <span style={{ color: "blue" }}>Excellence</span>
           <br></br>
-         {“ ”} {“ ”}  Online ISSN 3049-2912
+         <div style={{ marginTop: "20px" }}>Online ISSN 3049-2912</div>
       </div>
 
       <div className="heading-class-1">
