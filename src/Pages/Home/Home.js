@@ -27,14 +27,17 @@ const Home = () => {
       </Helmet>
       <Header />
 
-      <div className="heading-class">
-        <span style={{ color: "blue" }}>International </span>
-        Journal of English for
-        <br></br>
-        Academic <span style={{ color: "blue" }}>Excellence</span>
-          <br></br>
-          online ISSN 3049-2912
-      </div>
+     <div className="heading-class">
+  <h1 className="title-line">
+    <span style={{ color: "blue" }}>International</span> Journal of English for
+  </h1>
+  <div className="second-line">
+    <h1>
+      Academic <span style={{ color: "blue" }}>Excellence</span>
+    </h1>
+    <span className="issn">Online ISSN 3049-2912</span>
+  </div>
+</div>
 
       <div className="heading-class-1">
         <h3>
