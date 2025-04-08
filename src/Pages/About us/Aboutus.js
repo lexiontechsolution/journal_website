@@ -16,7 +16,7 @@ const About = () => {
           <strong>
             International Journal of English for Academic Excellence (IJEAE)
           </strong>{" "}
-          is a bi-monthly peer-reviewed, open-access journal published by the
+         with ISSN: 3049-2912 is a bi-monthly peer-reviewed, open-access journal published by the
           Academic Development Forum (ADF), India. Launched in 2025, IJEAE
           serves as a premier platform for interdisciplinary scholarship,
           focusing exclusively on English literature and language.
