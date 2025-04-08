@@ -32,8 +32,7 @@ const Announcement = () => {
           <p>
             To encourage researchers to publish their work and celebrate the
             launch of the International Journal of English for Academic
-            Excellence (IJEAE), the Article Processing Fee (APC) has been
-            reduced to ₹500 (instead of the standard ₹1500).
+            Excellence (IJEAE)
           </p>
           <ul className="announcement-list" style={{ listStyleType: "none" }}>
             <li>
