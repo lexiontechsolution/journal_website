@@ -33,7 +33,7 @@ const Home = () => {
         <br></br>
         Academic <span style={{ color: "blue" }}>Excellence</span>
           <br></br>
-         <div style={{  paddingRight: "10px" }}>Online ISSN 3049-2912</div>
+         <div style={{  textAlign:"center", marginLeft:"390px" ,fontSize:"25px"}}>Online ISSN <span style={{ color: "blue" }}> 3049-2912</span></div>
       </div>
 
       <div className="heading-class-1">
@@ -94,7 +94,7 @@ const Home = () => {
         By supporting a range of research types, IJEAE aims to bridge
         theoretical frameworks with practical applications, creating a dynamic
         space for knowledge sharing that enriches both academic and professional
-        communities within the field of English studies.  
+        communities within the field of English studies.  
       </div>
 
    
