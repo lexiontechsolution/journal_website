@@ -20,7 +20,7 @@ const Plagarismpolicy = () => {
       </Helmet>
       <Header />
       <div className="heading-class">
-        Plagarism
+        Plagiarism
         <span style={{ color: "blue" }}> Policy</span>
       </div>
       <div className="policy-intro">
