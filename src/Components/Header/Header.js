@@ -64,7 +64,7 @@ const Header = () => {
               {isGuidelinesDropdownOpen && (
                 <div className="dropdown">
                   <Link to="/authorguide">Author Guide</Link>
-                  <Link to="/plagarism">Plagarism policy</Link>
+                  <Link to="/plagiarism">Plagiarism policy</Link>
                   <Link to="/journalmetrics">Journal metrics</Link>
                 </div>
               )}
