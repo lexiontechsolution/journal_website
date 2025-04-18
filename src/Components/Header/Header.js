@@ -47,7 +47,7 @@ const Header = () => {
             <Link
               className={`dropdown-wrapper ${
                 location.pathname === "/authorguide" ||
-                location.pathname === "/plagarism" ||
+                location.pathname === "/plagiarism" ||
                 location.pathname === "/journalmetrics" ||
                 location.pathname === "/authorguide"
                   ? "active-link"
