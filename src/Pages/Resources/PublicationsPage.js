@@ -15,7 +15,7 @@ const PublicationsPage = () => {
     const fetchData = async () => {
       try {
         const specialIssueResponse = await fetch(
-          `https://61.2.79.154:15002/publications?year=${year}&volume=${volume}&issue=${issue}`
+          `http://61.2.79.154:15002//publications?year=${year}&volume=${volume}&issue=${issue}`
         );
 
         const specialIssueData = await specialIssueResponse.json();
@@ -87,7 +87,7 @@ const PublicationsPage = () => {
               </div>
             ))
           ) : (
-            <p> No publications found for this issue.</p>
+            <p>No publications found for this issue.</p>
           )}
         </div>
       </div>
