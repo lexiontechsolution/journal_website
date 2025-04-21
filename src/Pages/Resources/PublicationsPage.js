@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
@@ -10,22 +11,34 @@ const PublicationsPage = () => {
   const { year, volume, issue } = useParams();
   const [publications, setPublications] = useState([]);
   const [isSpecialIssue, setIsSpecialIssue] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
-        const specialIssueResponse = await fetch(
-          `https://publicationbackend.onrender.com/publications?year=${year}&volume=${volume}&issue=${issue}`
-        );
+        const key = `${year}-${volume}-${issue}`;
+        const cached = sessionStorage.getItem(key);
 
-        const specialIssueData = await specialIssueResponse.json();
-
-        if (specialIssueData.length > 0) {
+        if (cached) {
+          setPublications(JSON.parse(cached));
           setIsSpecialIssue(true);
-          setPublications(specialIssueData);
+        } else {
+          const specialIssueResponse = await fetch(
+            `https://publicationbackend.onrender.com/publications?year=${year}&volume=${volume}&issue=${issue}`
+          );
+          const specialIssueData = await specialIssueResponse.json();
+
+          if (specialIssueData.length > 0) {
+            setIsSpecialIssue(true);
+            setPublications(specialIssueData);
+            sessionStorage.setItem(key, JSON.stringify(specialIssueData));
+          }
         }
       } catch (error) {
         console.error("Error fetching data from backend:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -44,55 +57,32 @@ const PublicationsPage = () => {
       window.open(blobUrl, "_blank");
     } catch (error) {
       console.error("Error fetching PDF:", error);
-      alert("Failed to load PDF.");
     }
   };
 
   return (
-    <div className="publications-page">
-      <Helmet>
-        <title>International Journal of English for Academic Excellence</title>
-        <meta
-          name="description"
-          content="IJEAE is the International Journal of English for Academic Research, offering a platform for high-quality research in English studies."
-        />
-        <meta
-          name="keywords"
-          content="International Journal, English for Academic Research, IJEAE"
-        />
-      </Helmet>
+    <>
       <Header />
-      <div className="content">
-        <div className="heading-class">
-          <span style={{ color: "blue" }}>Regular Issue Publications</span>
-          <br /> {year}/ Volume {volume}
-        </div>
-
-        <div className="publications-container">
-          {publications.length > 0 ? (
-            publications.map((publication, index) => (
-              <div key={publication._id || index} className="publication-box">
-                <p>
-                  <em>By: {publication.author}</em>
-                  <br />
-                  {publication.title}
-                  <br></br>
-                  <button
-                    className="pdf-button"
-                    onClick={() => fetchPdf(publication._id)}
-                  >
-                    Article PDF
-                  </button>
-                </p>
+      <Helmet>
+        <title>Publications</title>
+      </Helmet>
+      <div className="publications-container">
+        {loading ? (
+          <p>Loading data, please wait...</p>
+        ) : (
+          <>
+            {publications.map((pub, index) => (
+              <div key={index} className="publication-item">
+                <h3>{pub.title}</h3>
+                <p>{pub.author}</p>
+                <button onClick={() => fetchPdf(pub._id)}>View PDF</button>
               </div>
-            ))
-          ) : (
-            <p>No publications found for this issue.</p>
-          )}
-        </div>
+            ))}
+          </>
+        )}
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
