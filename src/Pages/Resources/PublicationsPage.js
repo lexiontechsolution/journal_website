@@ -15,7 +15,7 @@ const PublicationsPage = () => {
     const fetchData = async () => {
       try {
         const specialIssueResponse = await fetch(
-          `https://publication-backend-klr9.onrender.com/publications?year=${year}&volume=${volume}&issue=${issue}`
+          `https://publicationbackend.onrender.com/publications?year=${year}&volume=${volume}&issue=${issue}`
         );
 
         const specialIssueData = await specialIssueResponse.json();
