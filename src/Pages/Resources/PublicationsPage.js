@@ -15,7 +15,7 @@ const PublicationsPage = () => {
     const fetchData = async () => {
       try {
         const specialIssueResponse = await fetch(
-          `https://publicationbackend.onrender.com/publications?year=${year}&volume=${volume}&issue=${issue}`
+          `https://61.2.79.154:15002/publications?year=${year}&volume=${volume}&issue=${issue}`
         );
 
         const specialIssueData = await specialIssueResponse.json();
