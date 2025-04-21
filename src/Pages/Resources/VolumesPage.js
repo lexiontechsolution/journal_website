@@ -14,7 +14,7 @@ const VolumesPage = () => {
     const fetchVolumesAndIssues = async () => {
       try {
         const response = await fetch(
-          `https://publication-backend-klr9.onrender.com/volumes?year=${year}`
+          `https://publicationbackend.onrender.com/volumes?year=${year}`
         );
 
         if (!response.ok) {
