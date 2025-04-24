@@ -35,7 +35,7 @@ const PublicationsPage = () => {
   const fetchPdf = async (pdfId) => {
     try {
       const response = await axios.get(
-        `https://publicationbackend-1.onrender.com/view-pdf/${pdfId}`,
+        `https://publicationbackend.onrender.com/view-pdf/${pdfId}`,
         { responseType: "blob" }
       );
 
