@@ -14,7 +14,7 @@ const VolumesPage = () => {
     const fetchVolumesAndIssues = async () => {
       try {
         const response = await fetch(
-          `https://61.2.79.154:15002/volumes?year=${year}`
+          `https://publicationbackend.onrender.com/volumes?year=${year}`
         );
 
         if (!response.ok) {
@@ -26,7 +26,7 @@ const VolumesPage = () => {
 
         const issuePromises = volumes.map((volume) =>
           fetch(
-            `https://61.2.79.154:15002/publications?year=${year}&volume=${volume}`
+            `https://publicationbackend.onrender.com/publications?year=${year}&volume=${volume}`
           ).then((res) => res.json())
         );
 
