@@ -14,7 +14,7 @@ const YearsPage = () => {
     const fetchYears = async () => {
       try {
         const response = await fetch(
-          "https://61.2.79.154:15002/years"
+          "https://publicationbackend.onrender.com/years"
         );
         const data = await response.json();
         setYears(data); // Set the data into state
