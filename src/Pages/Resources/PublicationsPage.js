@@ -15,7 +15,7 @@ const PublicationsPage = () => {
     const fetchData = async () => {
       try {
         const specialIssueResponse = await fetch(
-          `https://publicationbackend.onrender.com/publications?year=${year}&volume=${volume}&issue=${issue}`
+          `https://eeman.in:15002/publications?year=${year}&volume=${volume}&issue=${issue}`
         );
 
         const specialIssueData = await specialIssueResponse.json();
@@ -35,7 +35,7 @@ const PublicationsPage = () => {
   const fetchPdf = async (pdfId) => {
     try {
       const response = await axios.get(
-        `https://publicationbackend.onrender.com/view-pdf/${pdfId}`,
+        `https://eeman.in:15002/view-pdf/${pdfId}`,
         { responseType: "blob" }
       );
 
