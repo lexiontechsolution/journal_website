@@ -13,7 +13,7 @@ const SpecialpublicationsPage = () => {
     const fetchSpecialPublications = async () => {
       try {
         const response = await fetch(
-          `https://publicationbackend.onrender.com/special-issues?year=${year}&volume=${volume}&issue=${issue}`
+          `https://eeman.in:15002/special-issues?year=${year}&volume=${volume}&issue=${issue}`
         );
         const data = await response.json();
         setPublications(data);
