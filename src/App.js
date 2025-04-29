@@ -9,7 +9,7 @@ import Editorial from "./Pages/Editorial/Editorial";
 import YearsPage from "./Pages/Resources/YearsPage";
 import VolumesPage from "./Pages/Resources/VolumesPage";
 import PublicationsPage from "./Pages/Resources/PublicationsPage";
-
+import PDFViewer from "./Pages/Resources/PdfViewer";
 import Plagarismpolicy from "./Pages/Authorguide/Plagarismpolicy";
 import Journalmetrics from "./Pages/Authorguide/Journalmetrics";
 import SpecialPublicationsPage from "./Pages/Resources/SpecialpublicationsPage";
@@ -36,6 +36,7 @@ function App() {
         path="/special-publications/:year/:volume/:issue"
         element={<SpecialPublicationsPage />}
       />
+      <Route path="/view-pdf/:id" element={<PDFViewer />} />
     </Routes>
   );
 }
