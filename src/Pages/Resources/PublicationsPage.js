@@ -33,12 +33,9 @@ const PublicationsPage = () => {
   }, [year, volume, issue]);
 
  const fetchPdf = (pdfId) => {
-    // Construct the relative URL for the PDF
     const pdfUrl = `/view-pdf/${pdfId}`;
-  
-    // Open the PDF in a new tab
-    window.open(pdfUrl, "_blank");
-  };
+    window.open(pdfUrl, "_blank"); 
+  }; 
 
   return (
     <div className="publications-page">
