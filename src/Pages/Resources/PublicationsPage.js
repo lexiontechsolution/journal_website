@@ -65,6 +65,21 @@ const PublicationsPage = () => {
                   <em>By: {publication.author}</em>
                   <br />
                   {publication.title}
+        {publication.doi && (
+          <>
+            DOI:{" "}
+            <a
+              href={`https://doi.org/${publication.doi}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "blue" }}
+            >
+              {publication.doi}
+            </a>
+            <br />
+          </>
+        )}
+
                   <br></br>
                   <button
                     className="pdf-button"
