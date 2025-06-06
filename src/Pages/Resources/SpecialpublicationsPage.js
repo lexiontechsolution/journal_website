@@ -50,27 +50,34 @@ const SpecialpublicationsPage = () => {
           {year}/ Volume {volume}
         </div>
 
-        <div className="publications-container">
-          {publications.length > 0 ? (
-            publications.map((publication, index) => (
-              <div key={publication.id || index} className="publication-box">
-                <p>
-                  {index + 1}. {publication.title}
-                  <a
-                    href={publication.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ marginLeft: "10px" }}
-                  >
-                    Get PDF
-                  </a>
-                </p>
-              </div>
-            ))
-          ) : (
-            <p>No publications found for this special issue.</p>
-          )}
-        </div>
+            <div className="publications-container">
+  {publications.length > 0 ? (
+    publications.map((publication, index) => (
+      <div key={publication.id || index} className="publication-box">
+        <p><strong>{index + 1}. {publication.title}</strong></p>
+        <p><strong>Author:</strong> {publication.author}</p>
+        <p><strong>DOI:</strong> 
+          <a href={publication.doi} target="_blank" rel="noopener noreferrer" style={{ marginLeft: "5px" }}>
+            {publication.doi}
+          </a>
+        </p>
+        <p>
+          <a
+            href={publication.link || publication.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#3498db", textDecoration: "underline" }}
+          >
+            View PDF
+          </a>
+        </p>
+      </div>
+    ))
+  ) : (
+    <p>No publications found for this special issue.</p>
+  )}
+</div>
+
       </div>
       <Footer />
     </div>
