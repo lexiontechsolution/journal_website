@@ -73,7 +73,7 @@ const PublicationsPage = () => {
                     <>
                       DOI:{" "}
                       <a
-                        href={`https://doi.org/${publication.doi}`}
+                        href={publication.doi}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{ color: "blue" }}
