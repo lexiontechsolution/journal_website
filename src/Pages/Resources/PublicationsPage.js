@@ -31,7 +31,7 @@ const PublicationsPage = () => {
   }, [year, volume, issue]);
 
   const fetchPdf = (pdfId) => {
-    const pdfUrl = `/view-pdf/${pdfId}`;
+    const pdfUrl = `https://eeman.in:15002/view-pdf/${pdfId}`;
     window.open(pdfUrl, "_blank");
   };
 
