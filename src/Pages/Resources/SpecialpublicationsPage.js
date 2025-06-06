@@ -50,7 +50,7 @@ const SpecialpublicationsPage = () => {
 
       <div className="content">
         <div className="heading-class">
-          <span style={{ color: "blue" }}>Special Issue Publications</span>
+          <span style={{ color: "white", backgroundColor: "#f39c12" }}>Special Issue Publications</span>
           <br />
           {year} / Volume {volume} / Issue {issue}
         </div>
