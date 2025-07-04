@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const PDFViewer = () => {
   const { id } = useParams();
 
-  const pdfUrl = `https://eeman.in:15002/view-pdf/${id}`;
+  const pdfUrl = `https://dev.dine360.ca/backend/publications/${id}`;
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
