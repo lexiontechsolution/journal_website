@@ -14,7 +14,8 @@ const VolumesPage = () => {
     const fetchVolumesAndIssues = async () => {
       try {
         const response = await fetch(
-        `https://dev.dine360.ca/backend/volumes?year=${year}`
+        `https://dev.dine360.ca/backend/publications/?year=${year}`
+        );
         );
 
         if (!response.ok) {
