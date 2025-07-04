@@ -13,7 +13,9 @@ const SpecialpublicationsPage = () => {
     const fetchSpecialPublications = async () => {
       try {
         const response = await fetch(
-         `https://dev.dine360.ca/backend/special-issues?year=${year}&volume=${volume}&issue=${issue}`
+            `https://dev.dine360.ca/backend/special-issues?year=${encodeURIComponent(
+            year
+          )}&volume=${encodeURIComponent(volume)}&issue=${encodeURIComponent(issue)}`
         );
         const data = await response.json();
         setPublications(data);
