@@ -14,7 +14,7 @@ const YearsPage = () => {
     const fetchYears = async () => {
       try {
         const response = await fetch(
-          "https://eeman.in:15002/years"
+          "https://dev.dine360.ca/backend/publications/"
         );
         const data = await response.json();
         setYears(data); // Set the data into state
