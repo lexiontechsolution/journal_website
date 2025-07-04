@@ -11,61 +11,46 @@ const VolumesPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchVolumesAndIssues = async () => {
+    const fetchIssues = async () => {
       try {
         const response = await fetch(
-        `https://dev.dine360.ca/backend/publications/?year=${year}`
+          `https://dev.dine360.ca/backend/publications/?year=${year}`
         );
-        
 
         if (!response.ok) {
-          throw new Error("Failed to fetch volumes.");
+          throw new Error("Failed to fetch publications.");
         }
 
-        const volumes = await response.json();
-        console.log("Fetched volumes:", volumes);
+        const publications = await response.json();
+        console.log("Fetched publications:", publications);
 
-        const issuePromises = volumes.map((volume) =>
-          fetch(
-            `https://dev.dine360.ca/backend/publications?year=${year}&volume=${volume}`
-          ).then((res) => res.json())
-        );
-
-        const allIssues = await Promise.all(issuePromises);
-
-        console.log("Fetched issue data (counts):", allIssues);
-
+        // Aggregate issues
         const aggregatedIssues = {};
-        allIssues.flat().forEach((issue) => {
-          const key = `${issue.volume}-${issue.issue}-${issue.isSpecialIssue}`;
+        publications.forEach((pub) => {
+          const key = `${pub.volume}-${pub.issue}-${pub.isSpecialIssue}`;
           if (!aggregatedIssues[key]) {
             aggregatedIssues[key] = {
-              volume: issue.volume,
-              issue: issue.issue,
-              isSpecialIssue: issue.isSpecialIssue,
+              volume: pub.volume,
+              issue: pub.issue,
+              isSpecialIssue: pub.isSpecialIssue,
               count: 0,
             };
           }
-
           aggregatedIssues[key].count += 1;
         });
 
         const issuesArray = Object.values(aggregatedIssues);
-
         console.log("Aggregated issues data with counts:", issuesArray);
-
         setIssuesData(issuesArray);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchVolumesAndIssues();
+    fetchIssues();
   }, [year]);
 
   const handleClick = (volume, issue, isSpecial) => {
-    console.log("Navigation clicked for: ", { year, volume, issue, isSpecial });
-
     if (isSpecial) {
       navigate(`/special-publications/${year}/${volume}/${issue}`);
     } else {
@@ -93,12 +78,10 @@ const VolumesPage = () => {
         </div>
         <div className="years-container">
           {issuesData.length > 0 ? (
-            issuesData.map((issue, index) => (
+            issuesData.map((issue) => (
               <div
-                className={`year-box ${
-                  issue.isSpecialIssue ? "special-box" : ""
-                }`}
-                key={`${issue.volume}-${issue.issue}`}
+                className={`year-box ${issue.isSpecialIssue ? "special-box" : ""}`}
+                key={`${issue.volume}-${issue.issue}-${issue.isSpecialIssue}`}
                 onClick={() =>
                   handleClick(issue.volume, issue.issue, issue.isSpecialIssue)
                 }
