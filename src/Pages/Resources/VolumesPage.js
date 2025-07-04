@@ -16,7 +16,7 @@ const VolumesPage = () => {
         const response = await fetch(
         `https://dev.dine360.ca/backend/publications/?year=${year}`
         );
-        );
+        
 
         if (!response.ok) {
           throw new Error("Failed to fetch volumes.");
