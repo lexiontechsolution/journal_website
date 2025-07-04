@@ -14,7 +14,7 @@ const PublicationsPage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://eeman.in:15002/publications?year=${year}&volume=${volume}&issue=${issue}`
+          `https://dev.dine360.ca/backend/publications?year=${year}&volume=${volume}&issue=${issue}`
         );
         const data = await response.json();
 
@@ -31,7 +31,7 @@ const PublicationsPage = () => {
   }, [year, volume, issue]);
 
   const fetchPdf = (pdfId) => {
-    const pdfUrl = `/view-pdf/${pdfId}`;
+    const pdfUrl = `https://dev.dine360.ca/backend/view-pdf/${pdfId}`;
     window.open(pdfUrl, "_blank");
   };
 
