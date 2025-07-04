@@ -14,7 +14,7 @@ const VolumesPage = () => {
     const fetchVolumesAndIssues = async () => {
       try {
         const response = await fetch(
-          `https://dev.dine360.ca/backend/volumes?year=${year}`
+        `https://dev.dine360.ca/backend/volumes?year=${year}`
         );
 
         if (!response.ok) {
@@ -26,7 +26,7 @@ const VolumesPage = () => {
 
         const issuePromises = volumes.map((volume) =>
           fetch(
-           `https://dev.dine360.ca/backend/publications?year=${year}&volume=${volume}`
+            `https://dev.dine360.ca/backend/publications?year=${year}&volume=${volume}`
           ).then((res) => res.json())
         );
 
