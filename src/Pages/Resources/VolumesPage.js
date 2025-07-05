@@ -8,26 +8,33 @@ import { Helmet } from "react-helmet";
 const VolumesPage = () => {
   const { year } = useParams();
   const [issuesData, setIssuesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchIssues = async () => {
       try {
         const response = await fetch(
-          https://dev.dine360.ca/backend/publications/?year=${year}
+          `https://dev.dine360.ca/backend/publications?year=${year}`,
+          {
+            headers: {
+              "Accept": "application/json",
+            },
+          }
         );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch publications.");
+          const errText = await response.text();
+          throw new Error(`Failed to fetch publications: ${errText}`);
         }
 
         const publications = await response.json();
         console.log("Fetched publications:", publications);
 
-        // Aggregate issues
         const aggregatedIssues = {};
         publications.forEach((pub) => {
-          const key = ${pub.volume}-${pub.issue}-${pub.isSpecialIssue};
+          const key = `${pub.volume}-${pub.issue}-${pub.isSpecialIssue}`;
           if (!aggregatedIssues[key]) {
             aggregatedIssues[key] = {
               volume: pub.volume,
@@ -40,10 +47,12 @@ const VolumesPage = () => {
         });
 
         const issuesArray = Object.values(aggregatedIssues);
-        console.log("Aggregated issues data with counts:", issuesArray);
         setIssuesData(issuesArray);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -52,9 +61,9 @@ const VolumesPage = () => {
 
   const handleClick = (volume, issue, isSpecial) => {
     if (isSpecial) {
-      navigate(/special-publications/${year}/${volume}/${issue});
+      navigate(`/special-publications/${year}/${volume}/${issue}`);
     } else {
-      navigate(/publications/${year}/${volume}/${issue});
+      navigate(`/publications/${year}/${volume}/${issue}`);
     }
   };
 
@@ -71,17 +80,26 @@ const VolumesPage = () => {
           content="International Journal, English for Academic Research, IJEAE"
         />
       </Helmet>
+
       <Header />
+
       <div className="content">
         <div className="heading-class">
           <span style={{ color: "blue" }}>Volumes & Issues</span> for {year}
         </div>
+
         <div className="years-container">
-          {issuesData.length > 0 ? (
+          {loading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p style={{ color: "red" }}>{error}</p>
+          ) : issuesData.length === 0 ? (
+            <p>No issues found for {year}.</p>
+          ) : (
             issuesData.map((issue) => (
               <div
-                className={year-box ${issue.isSpecialIssue ? "special-box" : ""}}
-                key={${issue.volume}-${issue.issue}-${issue.isSpecialIssue}}
+                className={`year-box ${issue.isSpecialIssue ? "special-box" : ""}`}
+                key={`${issue.volume}-${issue.issue}-${issue.isSpecialIssue}`}
                 onClick={() =>
                   handleClick(issue.volume, issue.issue, issue.isSpecialIssue)
                 }
@@ -96,11 +114,10 @@ const VolumesPage = () => {
                 </div>
               </div>
             ))
-          ) : (
-            <p>Loading...</p>
           )}
         </div>
       </div>
+
       <Footer />
     </div>
   );
