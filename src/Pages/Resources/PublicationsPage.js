@@ -4,6 +4,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import "./PublicationsPage.css";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 const PublicationsPage = () => {
   const { year, volume, issue } = useParams();
@@ -13,14 +14,15 @@ const PublicationsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://dev.dine360.ca/backend/publications?year=${year}&volume=${volume}&issue=${issue}`
+        const specialIssueResponse = await fetch(
+          `https://eeman.in:15002/publications?year=${year}&volume=${volume}&issue=${issue}`
         );
-        const data = await response.json();
 
-        if (data.length > 0) {
-          setIsSpecialIssue(data[0]?.isSpecialIssue || false);
-          setPublications(data);
+        const specialIssueData = await specialIssueResponse.json();
+
+        if (specialIssueData.length > 0) {
+          setIsSpecialIssue(true);
+          setPublications(specialIssueData);
         }
       } catch (error) {
         console.error("Error fetching data from backend:", error);
@@ -30,8 +32,11 @@ const PublicationsPage = () => {
     fetchData();
   }, [year, volume, issue]);
 
-  const fetchPdf = (pdfId) => {
-    const pdfUrl = `https://dev.dine360.ca/backend/view-pdf/${pdfId}`;
+ const fetchPdf = (pdfId) => {
+    // Construct the relative URL for the PDF
+    const pdfUrl = `/view-pdf/${pdfId}`;
+  
+    // Open the PDF in a new tab
     window.open(pdfUrl, "_blank");
   };
 
@@ -48,16 +53,11 @@ const PublicationsPage = () => {
           content="International Journal, English for Academic Research, IJEAE"
         />
       </Helmet>
-
       <Header />
-
       <div className="content">
         <div className="heading-class">
-          <span style={{ color: "blue" }}>
-            {isSpecialIssue ? "Special Issue Publications" : "Regular Issue Publications"}
-          </span>
-          <br />
-          {year} / Volume {volume} / Issue {issue}
+          <span style={{ color: "blue" }}>Regular Issue Publications</span>
+          <br /> {year}/ Volume {volume}
         </div>
 
         <div className="publications-container">
@@ -68,26 +68,7 @@ const PublicationsPage = () => {
                   <em>By: {publication.author}</em>
                   <br />
                   {publication.title}
-                  <br />
-                  {publication.doi ? (
-                    <>
-                      DOI:{" "}
-                      <a
-                        href={publication.doi}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: "blue" }}
-                      >
-                        {publication.doi}
-                      </a>
-                      <br />
-                    </>
-                  ) : (
-                    <>
-                      DOI: <span style={{ color: "gray" }}>Not available</span>
-                      <br />
-                    </>
-                  )}
+                  <br></br>
                   <button
                     className="pdf-button"
                     onClick={() => fetchPdf(publication._id)}
@@ -102,7 +83,6 @@ const PublicationsPage = () => {
           )}
         </div>
       </div>
-
       <Footer />
     </div>
   );
