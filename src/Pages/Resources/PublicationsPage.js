@@ -15,7 +15,7 @@ const PublicationsPage = () => {
     const fetchData = async () => {
       try {
         const specialIssueResponse = await fetch(
-          `https://eeman.in:15002/publications?year=${year}&volume=${volume}&issue=${issue}`
+          `https://dev.dine360.ca/backend/publications/?year=${year}&volume=${volume}&issue=${issue}`
         );
 
         const specialIssueData = await specialIssueResponse.json();
