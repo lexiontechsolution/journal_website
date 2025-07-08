@@ -11,29 +11,32 @@ const PublicationsPage = () => {
   const [publications, setPublications] = useState([]);
   const [isSpecialIssue, setIsSpecialIssue] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-       const encodedVolume = encodeURIComponent(volume);
-const encodedIssue = encodeURIComponent(issue);
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const encodedVolume = encodeURIComponent(volume);
+      const encodedIssue = encodeURIComponent(issue);
 
-const specialIssueResponse = await fetch(
-  `https://dev.dine360.ca/backend/publications/special-issues?year=${year}&volume=${encodedVolume}&issue=${encodedIssue}`
-);
+      const response = await fetch(
+        `https://dev.dine360.ca/backend/publications/?year=${year}&volume=${encodedVolume}&issue=${encodedIssue}`
+      );
 
-        const specialIssueData = await specialIssueResponse.json();
-
-        if (specialIssueData.length > 0) {
-          setIsSpecialIssue(true);
-          setPublications(specialIssueData);
-        }
-      } catch (error) {
-        console.error("Error fetching data from backend:", error);
+      if (response.ok) {
+        const data = await response.json();
+        setPublications(data);
+      } else {
+        console.error("Failed to fetch publications: ", response.status);
+        setPublications([]);
       }
-    };
+    } catch (error) {
+      console.error("Error fetching data from backend:", error);
+      setPublications([]);
+    }
+  };
 
-    fetchData();
-  }, [year, volume, issue]);
+  fetchData();
+}, [year, volume, issue]);
+
 
  const fetchPdf = (pdfId) => {
     // Construct the relative URL for the PDF
