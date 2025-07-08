@@ -18,7 +18,7 @@ useEffect(() => {
       const encodedIssue = encodeURIComponent(issue);
 
       const response = await fetch(
-        `https://dev.dine360.ca/backend/publications/?year=${year}&volume=${encodedVolume}&issue=${encodedIssue}`
+        `https://dev.dine360.ca/backend/publications?year=${year}&volume=${encodedVolume}&issue=${encodedIssue}`
       );
 
       if (response.ok) {
