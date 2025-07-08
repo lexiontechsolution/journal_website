@@ -14,9 +14,12 @@ const PublicationsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const specialIssueResponse = await fetch(
-          `https://dev.dine360.ca/backend/publications/?year=${year}&volume=${volume}&issue=${issue}`
-        );
+       const encodedVolume = encodeURIComponent(volume);
+const encodedIssue = encodeURIComponent(issue);
+
+const specialIssueResponse = await fetch(
+  `https://dev.dine360.ca/backend/publications/special-issues?year=${year}&volume=${encodedVolume}&issue=${encodedIssue}`
+);
 
         const specialIssueData = await specialIssueResponse.json();
 
