@@ -26,7 +26,7 @@ const VolumesPage = () => {
 
         const issuePromises = volumes.map((volume) =>
           fetch(
-            `https://dev.dine360.ca/backend/publications/publications?year=${year}&volume=${volume}`
+            `https://dev.dine360.ca/backend/publications?year=${year}&volume=${volume}`
           ).then((res) => res.json())
         );
 
