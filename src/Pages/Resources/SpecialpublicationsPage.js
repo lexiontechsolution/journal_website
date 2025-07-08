@@ -12,9 +12,13 @@ const SpecialpublicationsPage = () => {
   useEffect(() => {
     const fetchSpecialPublications = async () => {
       try {
-        const response = await fetch(
-          `https://dev.dine360.ca/backend/publications/special-issues?year=${year}&volume=${volume}&issue=${issue}`
-        );
+       const encodedVolume = encodeURIComponent(volume);
+const encodedIssue = encodeURIComponent(issue);
+
+const response = await fetch(
+  `https://dev.dine360.ca/backend/publications/special-issues?year=${year}&volume=${encodedVolume}&issue=${encodedIssue}`
+);
+
         const data = await response.json();
         setPublications(data);
       } catch (error) {
