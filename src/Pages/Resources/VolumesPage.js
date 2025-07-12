@@ -13,64 +13,80 @@ const VolumesPage = () => {
   useEffect(() => {
     const fetchVolumesAndIssues = async () => {
       try {
-        const response = await fetch(
+        /* ─────────────────────────────────────────────────────
+           1. Get all volumes for the selected year
+           ──────────────────────────────────────────────────── */
+        const volumesRes = await fetch(
           `https://dev.dine360.ca/backend/publications/volumes?year=${year}`
         );
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch volumes.");
+        if (!volumesRes.ok) {
+          throw new Error(
+            `Failed to fetch volumes – ${volumesRes.status} ${volumesRes.statusText}`
+          );
         }
 
-        const volumes = await response.json();
+        const volumes = await volumesRes.json();
         console.log("Fetched volumes:", volumes);
 
-        const issuePromises = volumes.map((volume) =>
-          fetch(
-            `https://dev.dine360.ca/backend/publications/year=${year}&volume=${volume}`
-          ).then((res) => res.json())
-        );
+        /* ─────────────────────────────────────────────────────
+           2. For each volume, fetch its issues in parallel
+           ──────────────────────────────────────────────────── */
+        const issuePromises = volumes.map(async (volume) => {
+          const url = `https://dev.dine360.ca/backend/publications` +
+                      `?year=${year}&volume=${encodeURIComponent(volume)}`;
+
+          const res = await fetch(url);
+
+          if (!res.ok) {
+            throw new Error(
+              `Failed to fetch issues for volume ${volume} – ` +
+              `${res.status} ${res.statusText}`
+            );
+          }
+
+          return res.json();
+        });
 
         const allIssues = await Promise.all(issuePromises);
+        console.log("Fetched issue data:", allIssues);
 
-        console.log("Fetched issue data (counts):", allIssues);
-
-        const aggregatedIssues = {};
+        /* ─────────────────────────────────────────────────────
+           3. Aggregate issues so we can show counts
+           ──────────────────────────────────────────────────── */
+        const aggregated = {};
         allIssues.flat().forEach((issue) => {
           const key = `${issue.volume}-${issue.issue}-${issue.isSpecialIssue}`;
-          if (!aggregatedIssues[key]) {
-            aggregatedIssues[key] = {
+          if (!aggregated[key]) {
+            aggregated[key] = {
               volume: issue.volume,
               issue: issue.issue,
               isSpecialIssue: issue.isSpecialIssue,
               count: 0,
             };
           }
-
-          aggregatedIssues[key].count += 1;
+          aggregated[key].count += 1;
         });
 
-        const issuesArray = Object.values(aggregatedIssues);
-
-        console.log("Aggregated issues data with counts:", issuesArray);
-
-        setIssuesData(issuesArray);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+        setIssuesData(Object.values(aggregated));
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setIssuesData([]); // ensures UI falls back to “Loading…”
       }
     };
 
     fetchVolumesAndIssues();
   }, [year]);
 
+  /* ─────────────────────────────────────────────────────────── */
   const handleClick = (volume, issue, isSpecial) => {
-    console.log("Navigation clicked for: ", { year, volume, issue, isSpecial });
-
     if (isSpecial) {
       navigate(`/special-publications/${year}/${volume}/${issue}`);
     } else {
       navigate(`/publications/${year}/${volume}/${issue}`);
     }
   };
+  /* ─────────────────────────────────────────────────────────── */
 
   return (
     <div className="volumes-page">
@@ -85,38 +101,49 @@ const VolumesPage = () => {
           content="International Journal, English for Academic Research, IJEAE"
         />
       </Helmet>
+
       <Header />
+
       <div className="content">
         <div className="heading-class">
-          <span style={{ color: "blue" }}>Volumes & Issues</span> for {year}
+          <span style={{ color: "blue" }}>Volumes &amp; Issues</span> for {year}
         </div>
+
         <div className="years-container">
           {issuesData.length > 0 ? (
-            issuesData.map((issue, index) => (
+            issuesData.map((issue) => (
               <div
+                key={`${issue.volume}-${issue.issue}`}
                 className={`year-box ${
                   issue.isSpecialIssue ? "special-box" : ""
                 }`}
-                key={`${issue.volume}-${issue.issue}`}
                 onClick={() =>
-                  handleClick(issue.volume, issue.issue, issue.isSpecialIssue)
+                  handleClick(
+                    issue.volume,
+                    issue.issue,
+                    issue.isSpecialIssue
+                  )
                 }
               >
                 <div>
-                  Volume {issue.volume} <br />
+                  Volume {issue.volume}
+                  <br />
                   Issue {issue.issue}
-                  <div className="count-box">({issue.count} Publications)</div>
+                  <div className="count-box">
+                    ({issue.count} Publications)
+                  </div>
                   {issue.isSpecialIssue && (
-                    <div className="special-tag">Special Issue</div>
+                    <div className="special-tag">Special Issue</div>
                   )}
                 </div>
               </div>
             ))
           ) : (
-            <p>Loading...</p>
+            <p>Loading…</p>
           )}
         </div>
       </div>
+
       <Footer />
     </div>
   );
