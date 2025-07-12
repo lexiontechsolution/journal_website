@@ -5,72 +5,64 @@ import Footer from "../../Components/Footer/Footer";
 import "./PublicationsPage.css";
 import { Helmet } from "react-helmet";
 
-// ------------------------------------------------------------
-// ONE source of truth for the backend root
-// ------------------------------------------------------------
-const API_ROOT = "https://dev.dine360.ca/backend/publications/publications";
-const FILE_ROOT = "https://dev.dine360.ca/backend/publications"; // for view‑pdf
+const API_PUBS = "https://dev.dine360.ca/backend/publications/publications";
+const API_FILES = "https://dev.dine360.ca/backend/publications"; // for view-pdf
 
 const PublicationsPage = () => {
-  const { year, volume, issue } = useParams();          // URL params
-  const [publications, setPublications] = useState([]); // state
+  const { year, volume, issue } = useParams();
+  const [publications, setPublications] = useState([]);
+  const [error, setError] = useState("");
 
-  // ----------------------------------------------------------------
-  // Fetch all publications that match year + volume (+ optional issue)
-  // ----------------------------------------------------------------
   useEffect(() => {
+    if (!year || !volume || !issue) {
+      setError("Missing required parameters: year, volume, or issue.");
+      setPublications([]);
+      return;
+    }
+
     const controller = new AbortController();
 
     const fetchData = async () => {
       try {
-        const params = new URLSearchParams({
+        const qs = new URLSearchParams({
           year,
-          volume,                    // "1(1)" comes exactly as clicked
-          issue                      // "1" from the URL
+          volume,
+          issue, // now always required
         });
 
-        const res = await fetch(`${API_ROOT}?${params.toString()}`, {
+        const res = await fetch(`${API_PUBS}?${qs.toString()}`, {
           signal: controller.signal,
         });
 
         if (!res.ok) {
           throw new Error(
-            `Failed to fetch publications – ${res.status} ${res.statusText}`
+            `Fetch failed – ${res.status} ${res.statusText}`
           );
         }
 
         const data = await res.json();
         setPublications(data);
+        setError("");
       } catch (err) {
         if (err.name !== "AbortError") {
           console.error("Error fetching publications:", err);
+          setError("Failed to load publications.");
           setPublications([]);
         }
       }
     };
 
     fetchData();
-    return () => controller.abort(); // clean‑up
+    return () => controller.abort();
   }, [year, volume, issue]);
 
-  // ----------------------------------------------------------------
-  // Open PDF in a new tab
-  // ----------------------------------------------------------------
   const openPdf = (id) =>
-    window.open(`${FILE_ROOT}/view-pdf/${id}`, "_blank");
+    window.open(`${API_FILES}/view-pdf/${id}`, "_blank");
 
   return (
     <div className="publications-page">
       <Helmet>
         <title>International Journal of English for Academic Excellence</title>
-        <meta
-          name="description"
-          content="IJEAE is the International Journal of English for Academic Research, offering a platform for high-quality research in English studies."
-        />
-        <meta
-          name="keywords"
-          content="International Journal, English for Academic Research, IJEAE"
-        />
       </Helmet>
 
       <Header />
@@ -79,11 +71,13 @@ const PublicationsPage = () => {
         <div className="heading-class">
           <span style={{ color: "blue" }}>Regular Issue Publications</span>
           <br />
-          {year} / Volume&nbsp;{volume} / Issue&nbsp;{issue}
+          {year} / Volume {volume} / Issue {issue}
         </div>
 
         <div className="publications-container">
-          {publications.length > 0 ? (
+          {error ? (
+            <p className="error-text">{error}</p>
+          ) : publications.length > 0 ? (
             publications.map((pub) => (
               <div key={pub._id} className="publication-box">
                 <p>
@@ -95,7 +89,7 @@ const PublicationsPage = () => {
                     className="pdf-button"
                     onClick={() => openPdf(pub._id)}
                   >
-                    Article&nbsp;PDF
+                    Article PDF
                   </button>
                 </p>
               </div>
