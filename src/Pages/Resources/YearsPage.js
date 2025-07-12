@@ -1,35 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // To handle navigation
+import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import "./YearsPage.css";
 import { Helmet } from "react-helmet";
 
+// ------------------------------------------------------------
+// ONE source of truth for the backend root
+// ------------------------------------------------------------
+const API_ROOT = "https://dev.dine360.ca/backend/publications";
+
 const YearsPage = () => {
   const [years, setYears] = useState([]);
-  const navigate = useNavigate(); // Use to navigate to volumes page
+  const navigate = useNavigate();
 
-  // Fetch years data from the backend
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchYears = async () => {
       try {
-        const response = await fetch(
-          "https://dev.dine360.ca/backend/publications/years"
-        );
-        const data = await response.json();
-        setYears(data); // Set the data into state
-      } catch (error) {
-        console.error("Error fetching years:", error);
+        const res = await fetch(`${API_ROOT}/years`, {
+          signal: controller.signal,
+        });
+
+        if (!res.ok) {
+          throw new Error(
+            `Failed to fetch years – ${res.status} ${res.statusText}`
+          );
+        }
+
+        const data = await res.json();
+        setYears(data);
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          console.error("Error fetching years:", err);
+          setYears([]);
+        }
       }
     };
 
     fetchYears();
+    return () => controller.abort(); // cleanup on unmount
   }, []);
 
-  // Navigate to the volumes page for the selected year
-  const handleYearClick = (year) => {
-    navigate(`/volumes/${year}`); // Navigates to the volumes page for that year
-  };
+  const handleYearClick = (year) => navigate(`/volumes/${year}`);
 
   return (
     <div className="years-page">
@@ -44,11 +58,12 @@ const YearsPage = () => {
           content="International Journal, English for Academic Research, IJEAE"
         />
       </Helmet>
+
       <Header />
+
       <div className="content">
         <div className="heading-class">
-          <span style={{ color: "blue" }}>Publication </span>
-          Archives
+          <span style={{ color: "blue" }}>Publication&nbsp;</span>Archives
         </div>
 
         <div className="years-container">
@@ -57,16 +72,17 @@ const YearsPage = () => {
               <div
                 key={year}
                 className="year-box"
-                onClick={() => handleYearClick(year)} // Trigger the navigation when clicked
+                onClick={() => handleYearClick(year)}
               >
                 {year}
               </div>
             ))
           ) : (
-            <p>Loading years...</p> // Show loading message if data is not loaded
+            <p>Loading years…</p>
           )}
         </div>
       </div>
+
       <Footer />
     </div>
   );
