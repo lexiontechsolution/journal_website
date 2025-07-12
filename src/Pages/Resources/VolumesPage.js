@@ -5,10 +5,8 @@ import Footer from "../../Components/Footer/Footer";
 import "./VolumesPage.css";
 import { Helmet } from "react-helmet";
 
-// ------------------------------------------------------------
-// ONE source of truth for the backend root
-// ------------------------------------------------------------
-const API_ROOT = "https://dev.dine360.ca/backend/publications";
+// ✅ Set API root to match the actual working backend path
+const API_ROOT = "https://dev.dine360.ca/backend/publications/publications";
 
 const VolumesPage = () => {
   const { year } = useParams();
@@ -20,11 +18,9 @@ const VolumesPage = () => {
 
     const fetchVolumesAndIssues = async () => {
       try {
-        /* ─────────────────────────────────────────────────────
-           1. Get all volumes for the selected year
-           ──────────────────────────────────────────────────── */
+        // Step 1: Fetch all volumes for the selected year
         const volumesRes = await fetch(
-          `${API_ROOT}/volumes?year=${year}`,
+          `https://dev.dine360.ca/backend/publications/volumes?year=${year}`,
           { signal: controller.signal }
         );
 
@@ -37,13 +33,9 @@ const VolumesPage = () => {
         const volumes = await volumesRes.json();
         console.log("Fetched volumes:", volumes);
 
-        /* ─────────────────────────────────────────────────────
-           2. For each volume, fetch its issues in parallel
-           ──────────────────────────────────────────────────── */
+        // Step 2: Fetch issues for each volume
         const issuePromises = volumes.map(async (volume) => {
-          const url = `${API_ROOT}?year=${year}&volume=${encodeURIComponent(
-            volume
-          )}`;
+          const url = `${API_ROOT}?year=${year}&volume=${encodeURIComponent(volume)}`;
 
           const res = await fetch(url, { signal: controller.signal });
 
@@ -60,9 +52,7 @@ const VolumesPage = () => {
         const allIssues = await Promise.all(issuePromises);
         console.log("Fetched issue data:", allIssues);
 
-        /* ─────────────────────────────────────────────────────
-           3. Aggregate issues so we can show counts
-           ──────────────────────────────────────────────────── */
+        // Step 3: Aggregate issue data
         const aggregated = {};
         allIssues.flat().forEach((issue) => {
           const key = `${issue.volume}-${issue.issue}-${issue.isSpecialIssue}`;
@@ -81,16 +71,15 @@ const VolumesPage = () => {
       } catch (err) {
         if (err.name !== "AbortError") {
           console.error("Error fetching data:", err);
-          setIssuesData([]); // ensures UI falls back to “Loading…”
+          setIssuesData([]);
         }
       }
     };
 
     fetchVolumesAndIssues();
-    return () => controller.abort(); // cleanup on unmount
+    return () => controller.abort(); // Cleanup on unmount
   }, [year]);
 
-  /* ─────────────────────────────────────────────────────────── */
   const handleClick = (volume, issue, isSpecial) => {
     if (isSpecial) {
       navigate(`/special-publications/${year}/${volume}/${issue}`);
@@ -98,7 +87,6 @@ const VolumesPage = () => {
       navigate(`/publications/${year}/${volume}/${issue}`);
     }
   };
-  /* ─────────────────────────────────────────────────────────── */
 
   return (
     <div className="volumes-page">
