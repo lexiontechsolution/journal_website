@@ -5,19 +5,27 @@ import Footer from "../../Components/Footer/Footer";
 import "./VolumesPage.css";
 import { Helmet } from "react-helmet";
 
+// ------------------------------------------------------------
+// ONE source of truth for the backend root
+// ------------------------------------------------------------
+const API_ROOT = "https://dev.dine360.ca/backend/publications";
+
 const VolumesPage = () => {
   const { year } = useParams();
   const [issuesData, setIssuesData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchVolumesAndIssues = async () => {
       try {
         /* ─────────────────────────────────────────────────────
            1. Get all volumes for the selected year
            ──────────────────────────────────────────────────── */
         const volumesRes = await fetch(
-          `https://dev.dine360.ca/backend/publications/volumes?year=${year}`
+          `${API_ROOT}/volumes?year=${year}`,
+          { signal: controller.signal }
         );
 
         if (!volumesRes.ok) {
@@ -33,10 +41,11 @@ const VolumesPage = () => {
            2. For each volume, fetch its issues in parallel
            ──────────────────────────────────────────────────── */
         const issuePromises = volumes.map(async (volume) => {
-          const url = `https://dev.dine360.ca/backend/publications` +
-                      `?year=${year}&volume=${encodeURIComponent(volume)}`;
+          const url = `${API_ROOT}?year=${year}&volume=${encodeURIComponent(
+            volume
+          )}`;
 
-          const res = await fetch(url);
+          const res = await fetch(url, { signal: controller.signal });
 
           if (!res.ok) {
             throw new Error(
@@ -70,12 +79,15 @@ const VolumesPage = () => {
 
         setIssuesData(Object.values(aggregated));
       } catch (err) {
-        console.error("Error fetching data:", err);
-        setIssuesData([]); // ensures UI falls back to “Loading…”
+        if (err.name !== "AbortError") {
+          console.error("Error fetching data:", err);
+          setIssuesData([]); // ensures UI falls back to “Loading…”
+        }
       }
     };
 
     fetchVolumesAndIssues();
+    return () => controller.abort(); // cleanup on unmount
   }, [year]);
 
   /* ─────────────────────────────────────────────────────────── */
@@ -106,7 +118,8 @@ const VolumesPage = () => {
 
       <div className="content">
         <div className="heading-class">
-          <span style={{ color: "blue" }}>Volumes &amp; Issues</span> for {year}
+          <span style={{ color: "blue" }}>Volumes&nbsp;&amp;&nbsp;Issues</span>{" "}
+          for {year}
         </div>
 
         <div className="years-container">
@@ -130,10 +143,10 @@ const VolumesPage = () => {
                   <br />
                   Issue {issue.issue}
                   <div className="count-box">
-                    ({issue.count} Publications)
+                    ({issue.count}&nbsp;Publications)
                   </div>
                   {issue.isSpecialIssue && (
-                    <div className="special-tag">Special Issue</div>
+                    <div className="special-tag">Special&nbsp;Issue</div>
                   )}
                 </div>
               </div>
