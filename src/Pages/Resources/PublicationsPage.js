@@ -5,40 +5,59 @@ import Footer from "../../Components/Footer/Footer";
 import "./PublicationsPage.css";
 import { Helmet } from "react-helmet";
 
-const PublicationsPage = () => {
-  const { year, volume, issue } = useParams();
-  const [publications, setPublications] = useState([]);
+// ------------------------------------------------------------
+// ONE source of truth for the backend root
+// ------------------------------------------------------------
+const API_ROOT = "https://dev.dine360.ca/backend/publications/publications";
+const FILE_ROOT = "https://dev.dine360.ca/backend/publications"; // for view‑pdf
 
+const PublicationsPage = () => {
+  const { year, volume, issue } = useParams();          // URL params
+  const [publications, setPublications] = useState([]); // state
+
+  // ----------------------------------------------------------------
+  // Fetch all publications that match year + volume (+ optional issue)
+  // ----------------------------------------------------------------
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchData = async () => {
       try {
-        const encodedVolume = encodeURIComponent(volume);
-        const encodedIssue = encodeURIComponent(issue);
+        const params = new URLSearchParams({
+          year,
+          volume,                    // "1(1)" comes exactly as clicked
+          issue                      // "1" from the URL
+        });
 
-        const response = await fetch(
-          `https://dev.dine360.ca/backend/publications?year=${year}&volume=${encodedVolume}&issue=${encodedIssue}`
-        );
+        const res = await fetch(`${API_ROOT}?${params.toString()}`, {
+          signal: controller.signal,
+        });
 
-        if (response.ok) {
-          const data = await response.json();
-          setPublications(data);
-        } else {
-          console.error("Failed to fetch publications: ", response.status);
+        if (!res.ok) {
+          throw new Error(
+            `Failed to fetch publications – ${res.status} ${res.statusText}`
+          );
+        }
+
+        const data = await res.json();
+        setPublications(data);
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          console.error("Error fetching publications:", err);
           setPublications([]);
         }
-      } catch (error) {
-        console.error("Error fetching data from backend:", error);
-        setPublications([]);
       }
     };
 
     fetchData();
+    return () => controller.abort(); // clean‑up
   }, [year, volume, issue]);
 
-  const fetchPdf = (pdfId) => {
-    const pdfUrl = `/view-pdf/${pdfId}`;
-    window.open(pdfUrl, "_blank");
-  };
+  // ----------------------------------------------------------------
+  // Open PDF in a new tab
+  // ----------------------------------------------------------------
+  const openPdf = (id) =>
+    window.open(`${FILE_ROOT}/view-pdf/${id}`, "_blank");
 
   return (
     <div className="publications-page">
@@ -59,23 +78,24 @@ const PublicationsPage = () => {
       <div className="content">
         <div className="heading-class">
           <span style={{ color: "blue" }}>Regular Issue Publications</span>
-          <br /> {year} / Volume {volume}
+          <br />
+          {year} / Volume&nbsp;{volume} / Issue&nbsp;{issue}
         </div>
 
         <div className="publications-container">
           {publications.length > 0 ? (
-            publications.map((publication, index) => (
-              <div key={publication._id || index} className="publication-box">
+            publications.map((pub) => (
+              <div key={pub._id} className="publication-box">
                 <p>
-                  <em>By: {publication.author}</em>
+                  <em>By: {pub.author}</em>
                   <br />
-                  {publication.title}
+                  {pub.title}
                   <br />
                   <button
                     className="pdf-button"
-                    onClick={() => fetchPdf(publication._id)}
+                    onClick={() => openPdf(pub._id)}
                   >
-                    Article PDF
+                    Article&nbsp;PDF
                   </button>
                 </p>
               </div>
