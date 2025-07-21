@@ -88,7 +88,7 @@ const PublicationsPage = () => {
                     <a href={pub.doi} target="_blank" rel="noopener noreferrer">
   {pub.doi}
 </a>
-
+<br />
                   <button
                     className="pdf-button"
                     onClick={() => openPdf(pub._id)}
