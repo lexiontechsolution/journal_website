@@ -90,6 +90,11 @@ const Journalmetrics = () => {
             be provided only after the manuscript has been accepted for
             publication
           </p>
+          <p>
+            <strong>Copyright License 
+:</strong>
+            <br></br>All articles published in this journal are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). This license allows others to share, copy, redistribute, adapt, and build upon the work for any purpose, even commercially, as long as proper attribution is given to the original author(s).
+          </p>
         </section>
       </div>
       <Footer />
