@@ -75,7 +75,7 @@ const About = () => {
               </tr>
               <tr>
                 <td>Editor-in-Chief</td>
-                <td>Mr. Attrait Dovin Fedrick</td>
+                <td>Dr. Attrait Dovin Fedrick</td>
               </tr>
               <tr>
                 <td>Starting Year</td>
