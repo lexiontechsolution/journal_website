@@ -95,7 +95,7 @@ const Announcement = () => {
         <footer className="announcement-footer">
           <p>
             If you have any further queries, please contact<br></br>
-            <span style={{ fontWeight: "Bold" }}> Editor-in-chief</span>: Mr.
+            <span style={{ fontWeight: "Bold" }}> Editor-in-chief</span>: Dr.
             Attrait Dovin Fedrick
             <br></br>
             <span style={{ fontWeight: "bold" }}>Email: </span>
