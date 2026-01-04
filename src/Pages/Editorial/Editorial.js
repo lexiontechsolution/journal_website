@@ -44,7 +44,7 @@ const Editorial = () => {
               <h3>Editor-in-Chief</h3>
               <p>
                 <span style={{ fontWeight: "bold", fontStyle: "normal" }}>
-                  Mr. Attrait Dovin Fedrick
+                  Dr. Attrait Dovin Fedrick
                 </span>
                 <br></br>
                 Chairman<br></br>Academic Development Forum<br></br>2/2 A West
